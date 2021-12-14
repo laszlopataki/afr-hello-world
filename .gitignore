@@ -1,3 +1,11 @@
+# IDE files
+.metadata/
+.settings
+
+# Security credentials
+**/aws_clientcredential.h
+**/aws_clientcredential_keys.h
+
 # Prerequisites
 *.d
 
@@ -21,6 +29,7 @@
 *.a
 *.la
 *.lo
+*.zip
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -50,3 +59,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/build/
+/.vscode/
+/docs/_build/
