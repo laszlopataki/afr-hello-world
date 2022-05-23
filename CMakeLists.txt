@@ -16,6 +16,11 @@ get_filename_component(
     "src/main.c" ABSOLUTE
     )
 
+# As of now there's no offical way to redefine config files outside of FreeRTOS source tree.
+# This is a temporary approach to inject an include path so that this takes precedence over the
+# config file directory inside FreeRTOS.
+include_directories(BEFORE freertos-configs)
+
 # Add freertos as an subdirectory. AFR_BOARD tells which board to target.
 if("${SOC_NAME}" STREQUAL "esp32")
     set(AFR_BOARD espressif.esp32_devkitc CACHE INTERNAL "")
