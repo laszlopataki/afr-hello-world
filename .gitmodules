@@ -1,4 +1,4 @@
 [submodule "freertos"]
 	path = freertos
-	url = https://github.com/aws/amazon-freertos.git
+	url = https://github.com/laszlopataki/amazon-freertos.git
 	branch = release
