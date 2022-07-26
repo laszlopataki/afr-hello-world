@@ -1,0 +1,2 @@
+C:/work/embedded_workspace/afr-hello-world/unit-test-app/build/CMakeFiles/edit_cache.dir
+C:/work/embedded_workspace/afr-hello-world/unit-test-app/build/CMakeFiles/rebuild_cache.dir

@@ -2,20 +2,13 @@
 #include "FreeRTOS.h"
 #include "task.h"   
 
+#include "test_utils.h"
 
-int app_main( void )
+void app_main(void)
 {
-    while(1);
-
-    vTaskDelete( NULL );
-
-    /* Start the scheduler.  Initialization that requires the OS to be running,
-     * including the WiFi initialization, is performed in the RTOS daemon task
-     * startup hook. */
-    /* Following is taken care by initialization code in ESP IDF */
-    /* vTaskStartScheduler(); */
-    return 0;
+    test_main();
 }
+
 
 /*-----------------------------------------------------------*/
 
