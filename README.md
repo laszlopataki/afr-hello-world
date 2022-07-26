@@ -1,23 +1,9 @@
 # afr-hello-world
-This is a base project for Amazon FreeRTOS
+This is an example project for Amazon FreeRTOS as a submodule
 
-# Notes:
-- In FreeRTOSConfig.h you can disable/enable FreeRTOS hooks.
--  
+## Install environment
+Follow AWS guide at https://docs.aws.amazon.com/freertos/latest/userguide/getting_started_espressif.html
 
-# Start a new project
-- Create an empty repo on the version control provider's website 
-- Clone the empty repo
-- Copy the following files from `afr-hello-world`
-  - .gitignore
-  - .gitattributes
-  - CMakeLists.txt
-  - src/main.c
-- Add freertos as a submodule 
-  - `git submodule add -b release https://github.com/aws/amazon-freertos.git freertos`
-  - `git submodule update --init --recursive`
-  - `git add freertos`
-  - `git commit -m "Update FreeRTOS to a new release"`
 ## Create shortcut to `freertos/vendors/espressif/esp-idf` 
 1. Open `C:\Users\John\.espressif\esp_idf.json`  
 2. Add a new item to `idfInstalled` list as below  
@@ -33,13 +19,11 @@ This is a base project for Amazon FreeRTOS
 3. Create a copy of the `ESP-IDF 4.2 PS.lnk` and fill the properties as  
 
 3.1 Target
-  
-  ```
-  C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoExit -File "C:\Users\Laszlo\.espressif/Initialize-Idf.ps1" -IdfId esp-idf-7f645c11ccc057733dd6247d1da48a38
-  ```
+```
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoExit -File "C:\Users\Laszlo\.espressif/Initialize-Idf.ps1" -IdfId esp-idf-7f645c11ccc057733dd6247d1da48a38
+```
 
 3.2 Start in       
-
 ```
 c:\work\embedded_workspace\afr-hello-world
 ```  
@@ -48,7 +32,8 @@ c:\work\embedded_workspace\afr-hello-world
 - run `ESP-IDF 4.2 PS.lnk` 
 - `cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="freertos/tools/cmake/toolchains/xtensa-esp32.cmake" -GNinja`
 - `idf.py build`
-```
 
-# Add shared repo with sibling project
-TODO
+### One liner clean build with tracealyzer
+```
+rm -r .\build;cmake -S . -B build -DCONFIG_FREERTOS_UNICORE=1 -DCMAKE_TOOLCHAIN_FILE="freertos/tools/cmake/toolchains/xtensa-esp32.cmake" -GNinja;idf.py build
+```
